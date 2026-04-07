@@ -1,6 +1,6 @@
 {
   "name": "testing-mcp-openapi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The official TypeScript library for the Testing Mcp OpenAPI API",
   "author": "Testing Mcp OpenAPI <support@speakeasy.com>",
   "types": "dist/index.d.ts",
