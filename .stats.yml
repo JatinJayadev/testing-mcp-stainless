@@ -1,4 +1,4 @@
 configured_endpoints: 18
 openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/clearout%2Ftesting-mcp-openapi-dbb88614a7ffd99ae0771a96b282cbb21de47b81145d4195b71e26741b5228d7.yml
 openapi_spec_hash: 03e3387365ae18c7ce07d32543a62956
-config_hash: 4901778da44dfb92c9cbc53d3f963584
+config_hash: a8351b3bd6dd95b26616b30b64c68277
