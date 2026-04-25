@@ -83,5 +83,8 @@ export interface OrderCreateParams {
 }
 
 export declare namespace OrderResource {
-  export { type Order as Order, type OrderCreateParams as OrderCreateParams };
+  export {
+    type Order as Order,
+    type OrderCreateParams as OrderCreateParams
+  };
 }
