@@ -72,10 +72,7 @@ export class PetResource extends APIResource {
    * const pets = await client.pet.findByStatus();
    * ```
    */
-  findByStatus(
-    query: PetFindByStatusParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PetFindByStatusResponse> {
+  findByStatus(query: PetFindByStatusParams | null | undefined = {}, options?: RequestOptions): APIPromise<PetFindByStatusResponse> {
     return this._client.get('/pet/findByStatus', { query, ...options });
   }
 
@@ -88,10 +85,7 @@ export class PetResource extends APIResource {
    * const pets = await client.pet.findByTags();
    * ```
    */
-  findByTags(
-    query: PetFindByTagsParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PetFindByTagsResponse> {
+  findByTags(query: PetFindByTagsParams | null | undefined = {}, options?: RequestOptions): APIPromise<PetFindByTagsResponse> {
     return this._client.get('/pet/findByTags', { query, ...options });
   }
 
@@ -106,19 +100,9 @@ export class PetResource extends APIResource {
    * );
    * ```
    */
-  uploadImage(
-    petID: number,
-    body: string | ArrayBuffer | ArrayBufferView | Blob | DataView,
-    params: PetUploadImageParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PetUploadImageResponse> {
-    const { additionalMetadata } = params ?? {};
-    return this._client.post(path`/pet/${petID}/uploadImage`, {
-      body: body,
-      query: { additionalMetadata },
-      ...options,
-      headers: buildHeaders([{ 'Content-Type': 'application/octet-stream' }, options?.headers]),
-    });
+  uploadImage(petID: number, body: string | ArrayBuffer | ArrayBufferView | Blob | DataView, params: PetUploadImageParams | null | undefined = {}, options?: RequestOptions): APIPromise<PetUploadImageResponse> {
+    const { additionalMetadata } = params ?? {}
+    return this._client.post(path`/pet/${petID}/uploadImage`, { body: body, query: { additionalMetadata }, ...options, headers: buildHeaders([{'Content-Type': 'application/octet-stream'}, options?.headers]) });
   }
 }
 
@@ -153,9 +137,9 @@ export namespace Pet {
   }
 }
 
-export type PetFindByStatusResponse = Array<Pet>;
+export type PetFindByStatusResponse = Array<Pet>
 
-export type PetFindByTagsResponse = Array<Pet>;
+export type PetFindByTagsResponse = Array<Pet>
 
 export interface PetUploadImageResponse {
   code?: number;
@@ -258,6 +242,6 @@ export declare namespace PetResource {
     type PetUpdateParams as PetUpdateParams,
     type PetFindByStatusParams as PetFindByStatusParams,
     type PetFindByTagsParams as PetFindByTagsParams,
-    type PetUploadImageParams as PetUploadImageParams,
+    type PetUploadImageParams as PetUploadImageParams
   };
 }
