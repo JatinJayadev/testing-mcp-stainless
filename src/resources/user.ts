@@ -42,8 +42,16 @@ export class UserResource extends APIResource {
    * await client.user.update('username');
    * ```
    */
-  update(username: string, body: UserUpdateParams | null | undefined = {}, options?: RequestOptions): APIPromise<void> {
-    return this._client.put(path`/user/${username}`, { body, ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+  update(
+    username: string,
+    body: UserUpdateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<void> {
+    return this._client.put(path`/user/${username}`, {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 
   /**
@@ -66,8 +74,11 @@ export class UserResource extends APIResource {
    * const user = await client.user.createWithList();
    * ```
    */
-  createWithList(params: UserCreateWithListParams | null | undefined = undefined, options?: RequestOptions): APIPromise<User> {
-    const { body } = params ?? {}
+  createWithList(
+    params: UserCreateWithListParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<User> {
+    const { body } = params ?? {};
     return this._client.post('/user/createWithList', { body: body, ...options });
   }
 
@@ -92,7 +103,10 @@ export class UserResource extends APIResource {
    * ```
    */
   logout(options?: RequestOptions): APIPromise<void> {
-    return this._client.get('/user/logout', { ...options, headers: buildHeaders([{Accept: '*/*'}, options?.headers]) });
+    return this._client.get('/user/logout', {
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 }
 
@@ -117,7 +131,7 @@ export interface User {
   userStatus?: number;
 }
 
-export type UserLoginResponse = string
+export type UserLoginResponse = string;
 
 export interface UserCreateParams {
   id?: number;
@@ -184,6 +198,6 @@ export declare namespace UserResource {
     type UserCreateParams as UserCreateParams,
     type UserUpdateParams as UserUpdateParams,
     type UserCreateWithListParams as UserCreateWithListParams,
-    type UserLoginParams as UserLoginParams
+    type UserLoginParams as UserLoginParams,
   };
 }
