@@ -25,18 +25,12 @@ export class Store extends APIResource {
   }
 }
 
-export type StoreListInventoryResponse = { [key: string]: number }
+export type StoreListInventoryResponse = { [key: string]: number };
 
 Store.OrderResource = OrderResource;
 
 export declare namespace Store {
-  export {
-    type StoreListInventoryResponse as StoreListInventoryResponse
-  };
+  export { type StoreListInventoryResponse as StoreListInventoryResponse };
 
-  export {
-    OrderResource as OrderResource,
-    type Order as Order,
-    type OrderCreateParams as OrderCreateParams
-  };
+  export { OrderResource as OrderResource, type Order as Order, type OrderCreateParams as OrderCreateParams };
 }
