@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from 'testing-mcp-openapi/internal/to-file';
 import { toFile } from 'testing-mcp-openapi/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
